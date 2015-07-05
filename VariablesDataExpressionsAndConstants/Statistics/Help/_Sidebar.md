@@ -1,0 +1,8 @@
+- [Variables Data Expressions and Constants](d75eb659-6335-53f6-af7a-81814a21ab7f)
+  - [Statistics Namespace](f0b54f11-5cf1-05c9-427e-1f98b8731e06)
+    - [Printer Class](270cb39d-5592-08d7-c0bc-f40f01bb1ae3)
+      - [Printer Methods](2a044eb7-a900-0aae-6346-eb50752173de)
+        - [Printer.PrintAverage Method](9a0505da-d5ef-dcf1-17b5-2b427725b773)
+        - [Printer.PrintMax Method](46beea18-b283-3dc6-541c-524c1096e2b2)
+        - [Printer.PrintMin Method](6c4223bb-ecc3-0439-15d7-a0a00d39e8e5)
+        - [Printer.PrintStatistics Method](7ed97fdc-6c89-464c-9fff-a9858747081b)
