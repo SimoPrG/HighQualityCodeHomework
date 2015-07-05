@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topics>
+  <topic id="N:Statistics" project="_Namespaces" file="f0b54f11-5cf1-05c9-427e-1f98b8731e06">
+    <topic id="T:Statistics.Printer" project="Statistics" file="270cb39d-5592-08d7-c0bc-f40f01bb1ae3">
+      <topic id="Methods.T:Statistics.Printer" project="Statistics" file="2a044eb7-a900-0aae-6346-eb50752173de">
+        <topic id="M:Statistics.Printer.PrintAverage(System.Collections.Generic.IList{System.Double},System.Int32)" project="Statistics" file="9a0505da-d5ef-dcf1-17b5-2b427725b773" />
+        <topic id="M:Statistics.Printer.PrintMax(System.Collections.Generic.IList{System.Double},System.Int32)" project="Statistics" file="46beea18-b283-3dc6-541c-524c1096e2b2" />
+        <topic id="M:Statistics.Printer.PrintMin(System.Collections.Generic.IList{System.Double},System.Int32)" project="Statistics" file="6c4223bb-ecc3-0439-15d7-a0a00d39e8e5" />
+        <topic id="M:Statistics.Printer.PrintStatistics(System.Collections.Generic.IList{System.Double},System.Int32)" project="Statistics" file="7ed97fdc-6c89-464c-9fff-a9858747081b" />
+      </topic>
+    </topic>
+  </topic>
+</topics>

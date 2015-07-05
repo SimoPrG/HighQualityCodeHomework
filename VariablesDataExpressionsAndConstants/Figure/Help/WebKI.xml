@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Figure namespace" Url="html/66722884-beec-c5c7-38ec-23e14ed757eb.htm" />
+  <HelpKINode Title="Figure.Size class" Url="html/2c9c6c2d-c63a-5170-ea57-d09dbf4adfc7.htm" />
+  <HelpKINode Title="GetRotatedSize method" Url="html/87907e40-4039-a5e9-dded-573e6ad8fdb3.htm" />
+  <HelpKINode Title="Height property" Url="html/32ba7573-701a-cc05-49ca-5f179fe6a3a5.htm" />
+  <HelpKINode Title="Size class">
+    <HelpKINode Title="Size Class" Url="html/2c9c6c2d-c63a-5170-ea57-d09dbf4adfc7.htm" />
+    <HelpKINode Title="about Size class" Url="html/2c9c6c2d-c63a-5170-ea57-d09dbf4adfc7.htm" />
+    <HelpKINode Title="constructor" Url="html/2201955a-fc06-628c-646c-281559fdb38b.htm" />
+    <HelpKINode Title="methods" Url="html/b0de24bb-10d9-3ab3-b2eb-9db312a07d8d.htm" />
+    <HelpKINode Title="properties" Url="html/0b1d5785-c7dc-6351-d2db-896a759d01a4.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Size.GetRotatedSize method" Url="html/87907e40-4039-a5e9-dded-573e6ad8fdb3.htm" />
+  <HelpKINode Title="Size.Height property" Url="html/32ba7573-701a-cc05-49ca-5f179fe6a3a5.htm" />
+  <HelpKINode Title="Size.Size constructor" Url="html/2201955a-fc06-628c-646c-281559fdb38b.htm" />
+  <HelpKINode Title="Size.Width property" Url="html/40fad3f7-464d-8322-27a2-aad208ad62c8.htm" />
+  <HelpKINode Title="Width property" Url="html/40fad3f7-464d-8322-27a2-aad208ad62c8.htm" />
+</HelpKI>
