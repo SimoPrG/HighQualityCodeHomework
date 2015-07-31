@@ -1,38 +1,68 @@
-﻿using System;
-
-public class SimpleMathExam : Exam
+﻿namespace Exceptions
 {
-    public int ProblemsSolved { get; private set; }
-
-    public SimpleMathExam(int problemsSolved)
+    public class SimpleMathExam : IExam
     {
-        if (problemsSolved < 0)
+        private const int MinProblemsSolved = 0;
+        private const int MaxProblemsSolved = 10;
+        private const string ExcelentResultsComment = "Excellent result: everything's done correctly.";
+        private const string GoodResultsComment = "Good result: almost everything's done correctly.";
+        private const string AverageResultsComment = "Average result: almost nothing done.";
+        private const string BadResultsComment = "Bad result: nothing done.";
+        private const int BadGradeMaxProblems = 2;
+        private const int AverageGradeMaxProblems = 5;
+        private const int GoodGradeMaxProblems = 8;
+        private int problemsSolved;
+
+        public SimpleMathExam(int problemsSolved)
         {
-            problemsSolved = 0;
-        }
-        if (problemsSolved > 10)
-        {
-            problemsSolved = 10;
+            this.ProblemsSolved = problemsSolved;
         }
 
-        this.ProblemsSolved = problemsSolved;
-    }
+        public int ProblemsSolved
+        {
+            get
+            {
+                if (this.problemsSolved < MinProblemsSolved)
+                {
+                    return MinProblemsSolved;
+                }
 
-    public override ExamResult Check()
-    {
-        if (ProblemsSolved == 0)
-        {
-            return new ExamResult(2, 2, 6, "Bad result: nothing done.");
-        }
-        else if (ProblemsSolved == 1)
-        {
-            return new ExamResult(4, 2, 6, "Average result: nothing done.");
-        }
-        else if (ProblemsSolved == 2)
-        {
-            return new ExamResult(6, 2, 6, "Average result: nothing done.");
+                if (this.problemsSolved > MaxProblemsSolved)
+                {
+                    return MaxProblemsSolved;
+                }
+
+                return this.problemsSolved;
+            }
+
+            set
+            {
+                this.problemsSolved = value;
+            }
         }
 
-        return new ExamResult(0, 0, 0, "Invalid number of problems solved!");
+        public ExamResult Check()
+        {
+            string comment;
+
+            if (this.ProblemsSolved <= BadGradeMaxProblems)
+            {
+                comment = BadResultsComment;
+            }
+            else if (this.ProblemsSolved <= AverageGradeMaxProblems)
+            {
+                comment = AverageResultsComment;
+            }
+            else if (this.ProblemsSolved <= GoodGradeMaxProblems)
+            {
+                comment = GoodResultsComment;
+            }
+            else
+            {
+                comment = ExcelentResultsComment;
+            }
+
+            return new ExamResult(this.ProblemsSolved, MinProblemsSolved, MaxProblemsSolved, comment);
+        }
     }
 }

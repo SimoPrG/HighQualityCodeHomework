@@ -1,77 +1,88 @@
-﻿using System;
-using System.Linq;
-using System.Collections.Generic;
-
-public class Student
+﻿namespace Exceptions
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-    public IList<Exam> Exams { get; set; }
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
 
-    public Student(string firstName, string lastName, IList<Exam> exams = null)
+    public class Student
     {
-        if (firstName == null)
+        private string firstName;
+        private string lastName;
+
+        public Student(string firstName, string lastName, IList<IExam> exams = null)
         {
-            Console.WriteLine("Invalid first name!");
-            Environment.Exit(0);
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Exams = new List<IExam>();
+
+            if (exams != null)
+            {
+                this.Exams = exams;
+            }
         }
 
-        if (lastName == null)
+        public string FirstName
         {
-            Console.WriteLine("Invalid first name!");
-            Environment.Exit(0);
+            get
+            {
+                return this.firstName;
+            }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty", "first name");
+                }
+
+                this.firstName = value;
+            }
         }
 
-        this.FirstName = firstName;
-        this.LastName = lastName;
-        this.Exams = exams;
-    }
-
-    public IList<ExamResult> CheckExams()
-    {
-        if (this.Exams == null)
+        public string LastName
         {
-            throw new Exception("Wow! Error happened!!!");
+            get
+            {
+                return this.lastName;
+            }
+
+            set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new ArgumentException("Name cannot be null or empty", "last name");
+                }
+
+                this.lastName = value;
+            }
         }
 
-        if (this.Exams.Count == 0)
+        public IList<IExam> Exams { get; private set; }
+
+        public IList<ExamResult> CheckExams()
         {
-            Console.WriteLine("The student has no exams!");
-            return null;
+            IList<ExamResult> results = new List<ExamResult>();
+
+            for (int i = 0; i < this.Exams.Count; i++)
+            {
+                results.Add(this.Exams[i].Check());
+            }
+
+            return results;
         }
 
-        IList<ExamResult> results = new List<ExamResult>();
-        for (int i = 0; i < this.Exams.Count; i++)
+        public double CalcAverageExamResultInPercents()
         {
-            results.Add(this.Exams[i].Check());
+            double[] examScore = new double[this.Exams.Count];
+
+            IList<ExamResult> examResults = this.CheckExams();
+            for (int i = 0; i < examResults.Count; i++)
+            {
+                examScore[i] = ((double)examResults[i].Grade - examResults[i].MinGrade) /
+                    (examResults[i].MaxGrade - examResults[i].MinGrade);
+            }
+
+            return examScore.Average();
         }
-
-        return results;
-    }
-
-    public double CalcAverageExamResultInPercents()
-    {
-        if (this.Exams == null)
-        {
-            // Cannot calculate average on missing exams
-            throw new Exception();
-        }
-
-        if (this.Exams.Count == 0)
-        {
-            // No exams --> return -1;
-            return -1;
-        }
-
-        double[] examScore = new double[this.Exams.Count];
-        IList<ExamResult> examResults = CheckExams();
-        for (int i = 0; i < examResults.Count; i++)
-        {
-            examScore[i] = 
-                ((double)examResults[i].Grade - examResults[i].MinGrade) / 
-                (examResults[i].MaxGrade - examResults[i].MinGrade);
-        }
-
-        return examScore.Average();
     }
 }
