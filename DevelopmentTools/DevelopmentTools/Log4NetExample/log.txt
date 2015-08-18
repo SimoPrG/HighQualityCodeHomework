@@ -1,0 +1,4 @@
+2015-08-18 17:37:06,940 [1] INFO  Log4NetExample.Log4NetExample [(null)] - Info logging
+2015-08-18 17:37:06,964 [1] ERROR Log4NetExample.Log4NetExample [(null)] - This is my error
+System.Exception: Exception!
+   at Log4NetExample.Log4NetExample.Main() in d:\TelerikAcademy\HighQualityCode\HighQualityCodeHomework\DevelopmentTools\DevelopmentTools\Log4NetExample\Program.cs:line 18

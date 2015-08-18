@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+namespace SimpleT4Template
+{
+	using System.Collections.Generic;
+
+	public class NamesBundle
+	{
+<# const int PropertiesCount = 50; #>
+<# for (int i = 1; i <= PropertiesCount; i++) #>
+<# { #>
+		public string Name<#=i#> { get; set; }
+
+<# } #>
+		public IEnumerable<string> GetProperties()
+		{
+<# for (int i = 1; i <= PropertiesCount; i++) #>
+<# { #>
+			yield return this.Name<#=i#>;
+<# } #>
+		}
+	}
+}
