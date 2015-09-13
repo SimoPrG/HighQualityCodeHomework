@@ -111,3 +111,62 @@ public class Factory
     }
 }
 ```
+
+## Абстрактна фабрика
+
+### Клас диаграма
+
+![Alt text](../imgs/AbstractFactory.png)
+
+### Определение:
+
+Дефинира интерфейс за създаване на фамилии от свързани и/или зависими обекти без да посочва техните конкретни класове.
+
+### Примерен код:
+
+```cs
+public interface IPeopleFactory
+{
+    IPeople GetPeople();
+}
+
+public class VillagersFactory : IPeopleFactory
+{
+    public IPeople GetPeople()
+    {
+        return new Villagers();
+    }
+}
+
+public interface IProductFactory
+{
+    IProduct GetProduct();
+}
+
+public class AppleFactory : IProductFactory
+{
+    public IProduct GetProduct()
+    {
+        return new IPhone();
+    }
+}
+
+public abstract class AbstractFactory
+{
+    public abstract IPeopleFactory GetPeopleFactory();
+    public abstract IProductFactory GetProductFactory();
+}
+
+public class ConcreteFactory : AbstractFactory
+{
+    public override IPeopleFactory GetPeopleFactory()
+    {
+        return new VillagersFactory ();
+    }
+
+    public override IProductFactory GetProductFactory()
+    {
+        return new AppleFactory ();
+    }
+}
+```
